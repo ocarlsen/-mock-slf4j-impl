@@ -19,12 +19,14 @@ Visit the [GitHub Pages](https://ocarlsen.github.io/mock-slf4j-impl/) site for m
 
 ### Maven
 
+```xml
     <dependency>
         <groupId>${project.groupId}</groupId>
         <artifactId>${project.artifactId}</artifactId>
         <version>${project.version}</version>
         <scope>test</scope>
     </dependency>
+```
 
 ### Gradle
 
@@ -34,6 +36,7 @@ Visit the [GitHub Pages](https://ocarlsen.github.io/mock-slf4j-impl/) site for m
 
 Consider the class you wish to test:
 
+```java
     class MyLoggingClass {
 
         private final Logger logger = LoggerFactory.getLogger(getClass().getSimpleName());
@@ -45,9 +48,11 @@ Consider the class you wish to test:
             logger.error("this is an error message");
         }
     }
+```
 
 To confirm the log events, get the mock from the factory and test like this:
 
+```java
     @Test
     public void testLogging() {
 
@@ -67,7 +72,8 @@ To confirm the log events, get the mock from the factory and test like this:
         inOrder.verify(mockLogger).error("this is an error message");
         inOrder.verifyNoMoreInteractions();
     }
+```
 
 This example is demonstrated in
-[ExampleTest](https://github.com/ocarlsen/mock-slf4j-impl/blob/main/src/test/java/com/ocarlsen/test/ExampleTest.java).
+[ExampleTest](https://github.com/ocarlsen/mock-slf4j-impl/blob/develop/src/test/java/com/ocarlsen/test/ExampleTest.java).
 
