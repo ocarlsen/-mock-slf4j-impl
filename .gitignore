@@ -8,7 +8,7 @@ Release.md
 *.~
 
 # Maven
-Target/
+target/
 
 # Mac
 .DS_Store
