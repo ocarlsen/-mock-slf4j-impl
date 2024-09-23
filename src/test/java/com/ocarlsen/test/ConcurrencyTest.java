@@ -1,8 +1,8 @@
 package com.ocarlsen.test;
 
 import org.apache.commons.lang3.RandomStringUtils;
-import org.junit.Before;
-import org.junit.Test;
+import org.junit.jupiter.api.BeforeEach;
+import org.junit.jupiter.api.Test;
 import org.slf4j.LoggerFactory;
 
 import java.util.ArrayList;
@@ -25,7 +25,7 @@ public class ConcurrencyTest {
     private final List<Exception> exceptions = new ArrayList<>();
     private final List<Thread> threads = new ArrayList<>();
 
-    @Before
+    @BeforeEach
     public void initializeSlf4J() {
         LoggerFactory.getLogger("init");
     }

@@ -1,23 +1,24 @@
 package com.ocarlsen.test;
 
-import org.junit.Before;
-import org.junit.Test;
+import java.util.Objects;
+import org.junit.jupiter.api.BeforeEach;
+import org.junit.jupiter.api.Test;
 import org.slf4j.IMarkerFactory;
 import org.slf4j.spi.MDCAdapter;
 
+import static java.util.Objects.isNull;
 import static org.hamcrest.CoreMatchers.instanceOf;
 import static org.hamcrest.CoreMatchers.is;
-import static org.hamcrest.CoreMatchers.nullValue;
 import static org.hamcrest.CoreMatchers.startsWith;
-import static org.junit.Assert.assertNotNull;
-import static org.junit.Assert.assertThat;
-import static org.junit.Assume.assumeThat;
+import static org.hamcrest.MatcherAssert.assertThat;
+import static org.junit.jupiter.api.Assertions.assertNotNull;
+import static org.junit.jupiter.api.Assumptions.assumeTrue;
 
 public class MockServiceProviderTest {
 
   public MockServiceProvider serviceProvider;
 
-  @Before
+  @BeforeEach
   public void setUp() {
     serviceProvider = new MockServiceProvider();
   }
@@ -50,9 +51,9 @@ public class MockServiceProviderTest {
 
   @Test
   public void initialize() {
-    assumeThat(serviceProvider.getLoggerFactory(), nullValue());
-    assumeThat(serviceProvider.getMarkerFactory(), nullValue());
-    assumeThat(serviceProvider.getMDCAdapter(), nullValue());
+    assumeTrue(isNull(serviceProvider.getLoggerFactory()));
+    assumeTrue(isNull(serviceProvider.getMarkerFactory()));
+    assumeTrue(isNull(serviceProvider.getMDCAdapter()));
 
     serviceProvider.initialize();
 
