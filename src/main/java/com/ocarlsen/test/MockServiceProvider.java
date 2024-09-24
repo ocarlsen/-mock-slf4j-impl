@@ -7,6 +7,9 @@ import org.slf4j.helpers.BasicMarkerFactory;
 import org.slf4j.spi.MDCAdapter;
 import org.slf4j.spi.SLF4JServiceProvider;
 
+/**
+ * The mock logger provider.
+ */
 public class MockServiceProvider implements SLF4JServiceProvider {
 
   /**

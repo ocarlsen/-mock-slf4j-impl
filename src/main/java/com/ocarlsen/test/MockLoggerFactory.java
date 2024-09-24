@@ -24,6 +24,9 @@ public class MockLoggerFactory implements ILoggerFactory {
         return nameLoggerMap.computeIfAbsent(name, key -> mock(Logger.class));
     }
 
+    /**
+     * Clean and reset mock loggers. This can be useful when loggers are reused in tests.
+     */
     void cleanAndResetMockLoggers() {
         nameLoggerMap.forEach((loggerName, logger) -> {
             clearInvocations(logger);
